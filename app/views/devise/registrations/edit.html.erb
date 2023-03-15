@@ -1,0 +1,48 @@
+<div class="container User-section">
+  <h3>設定</h3>
+  <div class="User-container">
+    <div class="Sidemenu">
+      <ul class="Side-navi">
+        <li class="Side-item"><%= link_to "アカウント", :account %></li>
+        <li class="Side-item"><%= link_to "プロフィール", :profile %></li>
+      </ul>
+    </div>
+    <div class="Profile-information">
+      <div class="Profile-header">
+        <h4>アカウント情報</h4>
+      </div>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    
+        <div class="Field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "Width-100 form-control" %>
+        </div>
+        <%= render "shared/error", obj:resource, atr: :email %>
+    
+        <div class="Field">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "Width-100 form-control" %>
+        </div>
+        <%= render "shared/error", obj:resource, atr: :password %>
+    
+        <div class="Field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "Width-100 form-control" %>
+        </div>
+        <%= render "shared/error", obj:resource, atr: :password_confirmation %>
+
+        <div class="Field">
+          <label for="user_current_password">現在のパスワード</label>
+          <%= f.password_field :current_password, placeholder: "現在のパスワードを入力", class: "form-control" %>
+        </div>
+        <%= render "shared/error", obj:resource, atr: :current_password %>
+      
+        <div class="actions">
+          <%= f.submit "編集する", class: "Width-100 btn btn-primary Btn-actions" %>
+          <%= link_to "キャンセル", :account, class: "Width-100 btn btn-secondary Btn-actions" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container User-section">
+  <h3>設定</h3>
+  <div class="User-container">
+    <div class="Sidemenu">
+      <ul class="Side-navi">
+        <li class="Side-item"><%= link_to "アカウント", :account %></li>
+        <li class="Side-item"><%= link_to "プロフィール", :profile %></li>
+      </ul>
+    </div>
+    <div class="Profile-information">
+      <div class="Profile-header">
+        <h4>プロフィール</h4>
+        <%= link_to "編集", :profile_edit %>
+      </div>
+
+      <% if current_user.image.attached? %>
+        <ul class="Profile-item">
+          <li class="Profile-list">アイコン画像</li>
+          <li class="Profile-list"><%= image_tag current_user.image, size: "50x50", style: "border-radius: 50%", alt: "ユーザーアイコン", class: "Avatar" %></li>
+        </ul>
+      <% else %>
+        <ul class="Profile-item">
+          <li class="Profile-list">アイコン画像</li>
+          <li class="Profile-list"><img src="/assets/default.png" alt="デフォルトアイコン" class="Avatar"></li>
+        </ul>
+      <% end %>
+      <ul class="Profile-item">
+        <li class="Profile-list">名前</li>
+        <li class="Profile-list"><%= current_user.name %></li>
+      </ul>
+      <ul class="Profile-item">
+        <li class="Profile-list">自己紹介</li>
+        <li class="Profile-list"><%= current_user.introduction %></li>
+      </ul>
+    </div>
+  </div>
+</div>

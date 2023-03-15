@@ -1,0 +1,26 @@
+<div class="container User-section">
+  <h3>設定</h3>
+  <div class="User-container">
+    <div class="Sidemenu">
+      <ul class="Side-navi">
+        <li class="Side-item"><%= link_to "アカウント",  :account %></li>
+        <li class="Side-item"><%= link_to "プロフィール", :profile %></li>
+      </ul>
+    </div>
+    <div class="Profile-information">
+      <div class="Profile-header">
+        <h4>アカウント情報</h4>
+        <%= link_to "編集", :edit_user_registration %>
+      </div>
+
+      <ul class="Profile-item">
+        <li class="Profile-list">メールアドレス</li>
+        <li class="Profile-list"><%= current_user.email %></li>
+      </ul>
+      <ul class="Profile-item">
+        <li class="Profile-list">パスワード</li>
+        <li class="Profile-list">********</li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <h2 class="Title-registrations">ログイン</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="Field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "Width-100" %>
+    </div>
+
+    <div class="Field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "Width-100" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "ログイン", class: "Width-100 btn btn-primary Btn-actions" %>  </div>
+      <%= link_to "新規登録の方はこちら", :new_user_registration, class: "Width-100 btn btn-secondary Btn-actions" %>
+    </div>
+  <% end %>
+</div>
