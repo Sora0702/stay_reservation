@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="Search-container">
+    <%= form_with url: :rooms, method: :get, local: true do |f|%>
+      <div class="Search-form">
+        <%= f.text_field :area_keyword, placeholder: "エリアを入力してください", class: "form-control" %>
+        <%= f.text_field :keyword, placeholder: "キーワードを入力してください", class: "form-control" %>
+        <%= f.submit '検索', name: nil, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="table-responsive">
+    <% @rooms.each do |room| %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>施設画像</th>
+            <th>施設名</th>
+            <th>紹介文</th>
+            <th>料金</th>
+            <th>作成日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% if room.room_image.attached? %>
+              <td><%= image_tag room.room_image, width: "100px", height: "100px" %></td>
+            <% else %>
+              <td><img src="/assets/default.room.png" alt="施設デフォルト画像" class="" width="100px" height="100px"></td>
+            <% end %>
+            <td><%= link_to "#{room.room_name}", room %></td>
+            <td><%= room.room_introduction %></td>
+            <td><%= room.price %></td>
+            <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

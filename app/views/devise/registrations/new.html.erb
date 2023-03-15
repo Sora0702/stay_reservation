@@ -4,25 +4,25 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
     <div class="Field">
-      <%= f.label :name %><br />
+      <%= f.label :name, class: "Requiredform" %><br />
       <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "Width-100" %>
     </div>
     <%= render "shared/error", obj:resource, atr: :name %>
 
     <div class="Field">
-      <%= f.label :email %><br />
+      <%= f.label :email, class: "Requiredform" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "Width-100" %>
     </div>
     <%= render "shared/error", obj:resource, atr: :email %>
 
     <div class="Field">
-      <%= f.label :password %><br />
+      <%= f.label :password, class: "Requiredform" %><br />
       <%= f.password_field :password, autocomplete: "new-password", class: "Width-100" %>
     </div>
     <%= render "shared/error", obj:resource, atr: :password %>
 
     <div class="Field">
-      <%= f.label :password_confirmation %><br />
+      <%= f.label :password_confirmation, class: "Requiredform" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "Width-100" %>
     </div>
     <%= render "shared/error", obj:resource, atr: :password_confirmation %>

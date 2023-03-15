@@ -1,0 +1,42 @@
+<div class="Formwrapper">
+  <section class="Formcontainer">
+    <h3 class="Form-new-room">施設情報の編集</h3>
+    <%= form_with model: @room do |f| %>
+      <ul class="Formlist">
+        <li><%= f.label :room_name, class: "Requiredform" %></li>
+        <li><%= f.text_field :room_name, class: "form-control", placeholder: "施設名を入力" %></li>
+      </ul>
+      <%= render "shared/error", obj:@room, atr: :room_name %>
+
+      <ul class="Formlist">
+        <li><%= f.label :room_introduction, class: "Requiredform" %></li>
+        <li><%= f.text_area :room_introduction, class: "form-control", placeholder: "施設紹介を入力" %></li>
+      </ul>
+      <%= render "shared/error", obj:@room, atr: :room_introduction %>
+
+      <ul class="Formlist">
+        <li><%= f.label :price, class: "Requiredform" %>
+        <li><%= f.text_field :price, class: "form-control", placeholder: "料金を入力" %></li>
+      </ul>
+      <%= render "shared/error", obj:@room, atr: :price %>
+
+      <ul class="Formlist">
+        <li><%= f.label :address, class: "Requiredform" %></li>
+        <li><%= f.text_field :address, class: "form-control", placeholder: "住所を入力" %></li>
+      </ul>
+      <%= render "shared/error", obj:@room, atr: :address %>
+
+      <ul class="Formlist">
+        <li><%= f.label :room_image %></li>
+        <li><%= f.file_field :room_image, class: "form-control" %></li>
+      </ul>
+
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <ul class="Formlist">
+        <li><%= f.submit "編集", class: "Width-100 btn btn-primary Btn-actions" %></li>
+        <li><%= link_to "キャンセル", :back, class: "Width-100 btn btn-secondary Btn-actions" %>
+      </ul>
+    <% end %>
+  </section>
+</div>
