@@ -16,6 +16,10 @@ li {
   color: red;
 }
 
+.Table th {
+  word-break: keep-all;
+}
+
 //header
 .Title {
   color: #fff;
@@ -290,4 +294,57 @@ li {
 
 .Search-form {
   display: flex;
+}
+
+// room詳細画面,confirm画面
+
+.Room-action {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.Room-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Room-image {
+  margin-right: 40px;
+}
+
+.Room-reservation {
+  background-color: #fff8f1;
+  padding: 20px;
+}
+
+.Room-information {
+
+  ul {
+    padding-left: 0;
+    li {
+      word-break: break-all;
+      width: 100;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.Room-name {
+  font-size: 30px;
+  color: #6c757d;
+}
+
+.Room-reservation-form {
+  display: flex;
+  justify-content: space-between;
+  ul {
+    padding-left: 0;
+    padding-right: 10px;
+  }
+}
+
+.Reservation-title {
+  margin: 20px, 0;
 }

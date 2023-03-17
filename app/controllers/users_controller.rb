@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  
   #ぷろふぃーるの表示画面
   def profile
   end
@@ -11,10 +13,10 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:notice] = "プロフィールを更新しました"
+      flash[:notice] = "プロフィールの編集が完了しました"
       redirect_to profile_path
     else
-      flash.now[:notice] = "プロフィールの更新ができませんでした"
+      flash.now[:notice] = "プロフィールの編集に失敗しました"
       render "edit"
     end
   end

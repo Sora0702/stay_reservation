@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'users/profile'
   get 'reservations/index'
   get 'users/profile', to: 'users#profile', as: 'profile'
-  get 'users/pofile/edit', to: 'users#edit', as: 'profile_edit'
+  get 'users/profile/edit', to: 'users#edit', as: 'profile_edit'
   put 'users/profile', to: 'users#update' 
   root to: 'home#top'
   get 'home/top'
@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   resources :rooms
 
   post 'reservations/confirm', to: 'reservations#confirm', as: 'confirm'
-  resources :reservations
+  resources :reservations, only: [:index, :create, :edit, :update, :destroy]
 end

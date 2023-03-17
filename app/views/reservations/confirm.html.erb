@@ -1,0 +1,40 @@
+<% if @reservation.valid? %>
+  <div class="container">
+    <div class="Formwrapper">
+    <h3>予約内容の確認</h3>
+    <ul class="Reservation-confirm">
+      <li>チェックイン</li>
+      <%= @reservation.check_in.strftime("%Y/%m/%d") %>
+    </ul>
+    <ul class="Reservation-confirm">
+      <li>チェックアウト</li>
+      <li><%= @reservation.check_out.strftime("%Y/%m/%d") %></li>
+    </ul>
+    <ul class="Reservation-confirm">
+      <li>宿泊日数</li>
+      <li><%= (@reservation.check_out - @reservation.check_in).to_i %></li>
+    </ul>
+    <ul class="Reservation-confirm">
+      <li>宿泊人数</li>
+      <li><%= @reservation.number_of_people %></li>
+    </ul>
+    <ul class="Reservation-confirm">
+      <li>支払い金額</li>
+      <li><%= ((@reservation.check_out - @reservation.check_in).to_i * @reservation.number_of_people * @room.price).to_s(:delimited) %></li>
+    </ul>
+    <p>上記の内容で正しければ「確定」ボタンを押下してください。</p>
+
+    <%= form_with model: @reservations, url: reservations_path, local: true do |f| %>
+      <%= f.hidden_field :check_in, value: @reservation.check_in %>
+      <%= f.hidden_field :check_out, value: @reservation.check_out %>
+      <%= f.hidden_field :number_of_people, value: @reservation.number_of_people %>
+      <%= f.hidden_field :user_id, value: @reservation.user_id %>
+      <%= f.hidden_field :room_id, value: @reservation.room_id %>
+      <%= link_to "キャンセル", @room, class: "Width-100 btn btn-secondary Btn-actions" %>
+      <%= f.submit "予約を確定する", class: "Width-100 btn btn-primary" %>
+    <% end %>
+    </div>
+  </div>
+<% else %>
+  <%= render "shared/reservationform" %>
+<% end %>

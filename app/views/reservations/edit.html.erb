@@ -1,0 +1,43 @@
+<div class="Formwrapper">
+  <section class="Formcontainer">
+    <h3 class="Form-new-room">予約情報の編集</h3>
+    <div class="Room-information">
+      <% if @room.room_image.attached? %>
+        <%= image_tag @room.room_image, alt: "施設画像", class: "Room-image Width-50" %>
+      <% else %>
+        <img src="/assets/default.room.png" alt="施設デフォルト画像" class="Room-image Width-50" >
+      <% end %>
+      <ul>
+        <li class="Room-name"><%= @room.room_name %></li>
+        <li><%= "¥#{@room.price.to_s(:delimited)}~" %></li>
+        <li><%= @room.address %></li>
+        <li><%= @room.room_introduction %></li>
+      </ul>
+    </div>
+    <%= form_with model: @reservation, url: @reservation do |f| %>
+      <div class="Room-reservation-form">
+        <ul>
+          <li class="Requiredform"><%= f.label :check_in %></li>
+          <li><%= f.date_field :check_in %></li>
+          <li><%= render "shared/error", obj:@reservation, atr: :check_in %></li>
+        </ul>
+        <ul>
+          <li class="Requiredform"><%= f.label :check_out %></li>
+          <li><%= f.date_field :check_out %></li>
+          <li><%= render "shared/error", obj:@reservation, atr: :check_out %></li>
+        </ul>
+        <ul>
+          <li class="Requiredform"><%= f.label :number_of_people %></li>
+          <li><%= f.text_field :number_of_people %></li>
+          <li><%= render "shared/error", obj:@reservation, atr: :number_of_people %></li>
+        </ul>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+      </div>
+      <ul class="Formlist">
+        <li><%= f.submit "再予約する", class: "Width-100 btn btn-primary Btn-actions" %></li>
+        <li><%= link_to "キャンセル", :back, class: "Width-100 btn btn-secondary Btn-actions" %></li>
+      </ul>
+    <% end %>
+  </section>
+</div>

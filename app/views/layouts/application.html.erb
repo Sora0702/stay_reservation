@@ -11,40 +11,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header class="navbar bg-dark Navbar">
-      <div class="container-fluid">
-        <%= link_to "Potepan Share", :home_top, class: "Title" %>
-        <% if user_signed_in? %>
-          <div class="dropdown">
-            <div class="User-profile" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              <% if current_user.image.attached? %>
-                <%= image_tag current_user.image, size: "40x40", style: "border-radius: 50%", alt: "ユーザーアイコン", class: "Avatar" %>
-              <% else %>
-                <img src="/assets/default.png" alt="デフォルトアイコン" class="Avatar" width="40px" height="40px">
-              <% end %>
-              <span class="Profile-name"><%= current_user.name %></span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down Profile-icon" viewBox="0 0 16 16">
-                <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-              </svg>
-            </div>
-            <ul class="dropdown-menu dropdown-menu-end Dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li class="dropdown-item"><%= link_to "新規施設の登録", :new_room, class: "nav-link" %></li>
-              </li>
-              <li><hr class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to "登録済み施設一覧", :room_own, class: "nav-link" %></li>
-              <li class="dropdown-item"><%= link_to "アカウント設定", :account, class: "nav-link" %></li>
-              <li><hr class="dropdown-divider"></li>
-              <li class="dropdown-item"><%= link_to "ログアウト", :destroy_user_session, method: :delete, data: {confirm: "ログアウトしますか？"}, class: "nav-link" %></li>
-            </ul>
-          </div>
-        <% else %>
-          <ul class="Not-login-menu navbar-nav flex-row">
-            <li class="nav-item Nav-item"><%= link_to "ログイン", :new_user_session %></li>
-            <li class="nav-item Nav-item"><%= link_to "新規登録", :new_user_registration %></li>
-          </ul>
-        <% end %>
-      </div>
-    </header>
+    <%= render "shared/header" %>
     <%= yield %>
     <p class="notice Devise-error"><%= notice %></p>
     <p class="alert Devise-error"><%= alert %></p>

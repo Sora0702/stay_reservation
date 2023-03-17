@@ -1,7 +1,7 @@
 class Room < ApplicationRecord
   has_one_attached :room_image
   belongs_to :user
-  has_many :reservation
+  has_many :reservation, dependent: :destroy
   
   validates :room_name, presence: true
   validates :room_introduction, presence: true, length: { maximum: 300 }

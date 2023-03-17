@@ -17,7 +17,11 @@ module StayReservation
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
+    # 日本時間に変更
+    config.time_zone = 'Tokyo'
+
     # config.eager_load_paths << Rails.root.join("extras")
+    #日本語化
     config.i18n.default_locale = :ja
   end
 end

@@ -8,32 +8,25 @@
       </div>
     <% end %>
   </div>
-  <div class="table-responsive">
+  <%= "#{@rooms.count}件が見つかりました。" %>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @rooms.each do |room| %>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>施設画像</th>
-            <th>施設名</th>
-            <th>紹介文</th>
-            <th>料金</th>
-            <th>作成日</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <% if room.room_image.attached? %>
-              <td><%= image_tag room.room_image, width: "100px", height: "100px" %></td>
-            <% else %>
-              <td><img src="/assets/default.room.png" alt="施設デフォルト画像" class="" width="100px" height="100px"></td>
-            <% end %>
-            <td><%= link_to "#{room.room_name}", room %></td>
-            <td><%= room.room_introduction %></td>
-            <td><%= room.price %></td>
-            <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="col">
+      <div class="card h-100" style="width: 18rem;">
+        <% if room.room_image.attached? %>
+          <%= image_tag room.room_image %>
+        <% else %>
+          <img src="/assets/default.room.png" class="card-img-top" alt="施設デフォルト画像" >
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= room.room_name %></h5>
+          <p class="card-text"><%= room.address %></p>
+          <p class="card-text Room-content"><%= room.room_introduction %></p>
+          <p class="card-text"><%= "¥#{room.price.to_s(:delimited)}~" %></p>
+          <%= link_to "施設の詳細はこちら", room, class: "btn btn-primary" %> 
+        </div>
+      </div>
+      </div>
     <% end %>
   </div>
 </div>
