@@ -1,0 +1,354 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+//共通部分
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+}
+
+.Requiredform {
+  word-break: keep-all;
+}
+
+.Requiredform::after {
+  content: "*";
+  color: red;
+  word-break: keep-all;
+}
+
+.Table th {
+  word-break: keep-all;
+}
+
+//header
+.Title {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.User-profile {
+  display: flex;
+  align-items: center;
+}
+.Avatar {
+  margin-right: 10px;
+}
+
+.Profile-name {
+  color: #fff;
+  margin-right: 10px;
+}
+
+.Profile-icon {
+  color: #fff;
+}
+
+.Dropdown-menu {
+  min-width: 122px;
+  padding: 9px 0;
+}
+
+.Not-login-menu {
+  display: flex;
+}
+
+.Nav-item {
+  margin-right: 10px;
+  a {
+    color: #fff;
+  }
+}
+
+//profile、account画面
+.User-section {
+  margin-top: 40px;
+}
+
+.User-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Sidemenu {
+  border: 1px solid #dfe2e6;
+  height: fit-content;
+  width: 20%;
+}
+
+.Side-navi {
+  margin: 0;
+  padding: 0;
+}
+
+.Side-item {
+  padding: 24px 20px;
+  border-bottom: 1px solid #dfe2e6;
+  a {
+    color: black;
+  }
+}
+
+.Profile-information {
+  width: 75%;
+}
+
+.Profile-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #dfe2e6;
+}
+
+.Profile-item {
+  display: flex;
+  padding-left: 0;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.Profile-list {
+  width: 50%;
+}
+
+// ユーザー新規登録画面
+
+.Title-registrations {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dfe2e6;
+}
+
+.Width-100 {
+  width: 100%;
+}
+
+.Field {
+  margin-bottom: 12px;
+}
+
+.Btn-actions {
+  margin-bottom: 12px;
+}
+
+//Dviseに関するエラー表示
+
+.Devise-error {
+  text-align: center;
+  color: #ff4949;
+}
+
+//プロフィール編集画面
+
+.Edit-image {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Edit-actions {
+  display: flex;
+  justify-content: right;
+}
+
+.Edit-btn {
+  margin-right: 20px;
+}
+
+//個別のエラーメッセージ
+
+.Error-message {
+  color: red;
+}
+
+//フラッシュメッセージ
+.Snackbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  background-color: #ff4949;
+  font-size: 12px;
+  z-index: 1;
+  width: fit-content;
+  margin: auto;
+  border-radius: 4px;
+  height: 36px;
+}
+
+.Notice {
+  color: #fff;
+  text-align: center;
+  line-height: 36px;
+}
+
+//　新規roomの登録画面
+
+.Formwrapper {
+  padding-top: 40px;
+}
+
+.Formcontainer {
+  margin: 0 100px;
+}
+
+.Form-new-room {
+  border-bottom: 1px solid black;
+}
+
+.Formlist {
+  padding: 0;
+}
+
+// top画面
+
+.Firstview {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2017/06/05/11/01/airport-2373727_1280.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 750px;
+  padding-top: 100px;
+  margin-bottom: 100px;
+}
+
+.Firstview-title {
+  color: #fff;
+  font-size: 60px;
+  text-align: center;
+  margin-bottom: 40px;
+  word-break: keep-all;
+}
+
+.Firstview-search {
+  background-color: hsla(0, 0, 100%, 40%);
+  margin: auto;
+  padding: 32px;
+}
+
+.Form-margin {
+  margin-bottom: 12px;
+}
+
+.Recommend {
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.Recommendarea {
+  background-size: cover;
+  background-position: center;
+  border-radius: 26px;
+  display: flex;
+  height: 455px;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 24px;
+  margin-bottom: 20px;
+}
+
+.Recommend-Tokyo {
+  background-image: url(https://cdn.pixabay.com/photo/2018/07/08/06/54/japan-3523393_1280.jpg);
+  margin-right: 0;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.Recommend-Osaka {
+  background-image: url(https://cdn.pixabay.com/photo/2016/05/17/13/55/osaka-castle-1398125_1280.jpg);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.Recommend-Kyoto {
+  background-image: url(https://cdn.pixabay.com/photo/2016/08/09/19/43/kinkakuji-1581548_1280.jpg);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.Recommend-Sapporo {
+  background-image: url(https://cdn.pixabay.com/photo/2020/02/24/14/04/sapporo-4876299_1280.jpg);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+//登録済み施設一覧画面
+
+.Own-title {
+  border-bottom: 1px solid black;
+  margin: 20px 0;
+}
+
+.Own-room-list {
+  padding: 0;
+}
+
+//room検索後の一覧画面
+
+.Search-container {
+  margin: 40px 0;
+}
+
+.Search-form {
+  display: flex;
+}
+
+// room詳細画面,confirm画面
+
+.Room-action {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.Room-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Room-image {
+  margin-right: 40px;
+}
+
+.Room-reservation {
+  background-color: #fff8f1;
+  padding: 20px;
+  width: 40%;
+}
+
+.Room-information {
+  ul {
+    padding-left: 0;
+    li {
+      word-break: break-all;
+      width: 100;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.Room-name {
+  font-size: 30px;
+  color: #6c757d;
+}
+
+.Room-reservation-form {
+  
+  ul {
+    padding-left: 0;
+    padding-right: 10px;
+  }
+}
+
+.Reservation-title {
+  margin: 20px, 0;
+}

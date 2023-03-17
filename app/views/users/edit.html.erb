@@ -1,0 +1,52 @@
+<div class="container User-section">
+  <h3>設定</h3>
+  <div class="User-container">
+    <div class="Sidemenu">
+      <ul class="Side-navi">
+        <li class="Side-item"><%= link_to "アカウント", :account %></li>
+        <li class="Side-item"><%= link_to "プロフィール", :profile %></li>
+      </ul>
+    </div>
+    <div class="Profile-information">
+      <div class="Profile-header">
+        <h4>プロフィール</h4>
+      </div>
+
+      <%= form_with model: @user, url: {controller: "users", action: "update"}, method: :put do |f| %>
+        <% if @user.image.attached? %>
+          <ul class="Profile-item">
+            <li class="Profile-list"><%= f.label :image %></li>
+            <li class="Profile-list Edit-image">
+              <%= image_tag @user.image, size: "50x50", style: "border-radius: 50%", alt: "ユーザーアイコン", class: "Avatar" %>
+              <%= f.file_field :image %>
+            </li>
+          </ul>
+        <% else %>
+          <ul class="Profile-item">
+            <li class="Profile-list"><%= f.label :image %></li>
+            <li class="Profile-list Edit-image">
+              <img src="/assets/default.png" alt="デフォルトアイコン" class="Avatar">
+              <%= f.file_field :image %>
+            </li>
+          </ul>
+        <% end %>
+        <ul class="Profile-item">
+          <li class="Profile-list"><%= f.label :name %></li>
+          <li class="Profile-list"><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "Width-100 form-control" %></li>
+        </ul>
+        <%= render "shared/error", obj:@user, atr: :name %>
+
+        <ul class="Profile-item">
+          <li class="Profile-list"><%= f.label :introduction %></li>
+          <li class="Profile-list"><%= f.text_area :introduction, class: "Width-100 form-control" %></li>
+        </ul>
+        <%= render "shared/error", obj:@user, atr: :introduction %>
+
+        <div class="Edit-actions">
+          <%= link_to "キャンセル", :profile, class: "btn btn-secondary Btn-actions Edit-btn" %>
+          <%= f.submit "保存", class: "btn btn-primary Btn-actions" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

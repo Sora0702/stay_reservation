@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="Search-container">
+    <%= render "shared/researchform", obj:"エリア", atr: :area_keyword %>
+    <%= render "shared/researchform", obj:"キーワード", atr: :keyword %>
+  </div>
+  <%= "#{@rooms.count}件が見つかりました。" %>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @rooms.each do |room| %>
+      <div class="col">
+      <div class="card h-100" style="width: 18rem;">
+        <% if room.room_image.attached? %>
+          <%= image_tag room.room_image %>
+        <% else %>
+          <img src="/assets/default.room.png" class="card-img-top" alt="施設デフォルト画像" >
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= room.room_name %></h5>
+          <p class="card-text"><%= room.address %></p>
+          <p class="card-text Room-content"><%= room.room_introduction %></p>
+          <p class="card-text"><%= "¥#{room.price.to_s(:delimited)}~" %></p>
+          <%= link_to "施設の詳細はこちら", room, class: "btn btn-primary" %> 
+        </div>
+      </div>
+      </div>
+    <% end %>
+  </div>
+</div>

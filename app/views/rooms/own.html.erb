@@ -1,0 +1,35 @@
+<div class="Indexwrapper">
+  <div class="container">
+    <h3 class="Own-title">登録済み施設一覧</h3>
+    <div class="table-responsive">
+      <table class="table Table">
+        <thead>
+          <tr>
+            <th>施設画像</th>
+            <th>施設名</th>
+            <th>紹介文</th>
+            <th>料金</th>
+            <th>作成日</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @rooms.each do |room| %>
+            <tr>
+              <% if room.room_image.attached? %>
+                <td><%= image_tag room.room_image, width: "100px", height: "100px" %></td>
+              <% else %>
+                <td><img src="/assets/default.room.png" alt="施設デフォルト画像" class="" width="100px" height="100px"></td>
+              <% end %>
+              <td><%= link_to "#{room.room_name}", room %></td>
+              <td><%= room.room_introduction %></td>
+              <td><%= "¥#{room.price.to_s(:delimited)}~" %></td>
+              <td><%= room.created_at.strftime("%Y/%m/%d") %></td>
+              <td><%= render 'shared/dropdown', obj:room %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

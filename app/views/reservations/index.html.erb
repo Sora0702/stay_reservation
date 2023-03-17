@@ -1,0 +1,40 @@
+<div class="Indexwrapper">
+  <div class="container">
+    <h3 class="Own-title">予約済み施設一覧</h3>
+    <div class="table-responsive">
+      <table class="table Table">
+        <thead>
+          <tr>
+            <th>施設画像</th>
+            <th>施設名</th>
+            <th>紹介文</th>
+            <th>合計料金</th>
+            <th>チェックイン</th>
+            <th>チェックアウト</th>
+            <th>予定確定日時</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reservations.each do |reservation| %>
+            <tr>
+              <% if reservation.room.room_image.attached? %>
+                <td><%= image_tag reservation.room.room_image, width: "100px", height: "100px" %></td>
+              <% else %>
+                <td><img src="/assets/default.room.png" alt="施設デフォルト画像" class="" width="100px" height="100px"></td>
+              <% end %>
+              <td><%= link_to "#{reservation.room.room_name}", reservation.room %></td>
+              <td><%= reservation.room.room_introduction %></td>
+              <td><%= ((reservation.check_out - reservation.check_in).to_i * reservation.number_of_people * reservation.room.price).to_s(:delimited) %></td>
+              <td><%= reservation.check_in.strftime("%Y/%m/%d") %></td>
+              <td><%= reservation.check_out.strftime("%Y/%m/%d") %></td>
+              <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+              <td><%= render 'shared/dropdown', obj:reservation %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

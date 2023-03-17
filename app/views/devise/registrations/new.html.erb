@@ -1,0 +1,41 @@
+<div class="container">
+  <h2 class="Title-registrations">新規登録</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+    <div class="Field">
+      <%= f.label :name, class: "Requiredform" %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "Width-100" %>
+    </div>
+    <%= render "shared/error", obj:resource, atr: :name %>
+
+    <div class="Field">
+      <%= f.label :email, class: "Requiredform" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "Width-100" %>
+    </div>
+    <%= render "shared/error", obj:resource, atr: :email %>
+
+    <div class="Field">
+      <%= f.label :password, class: "Requiredform" %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "Width-100" %>
+    </div>
+    <%= render "shared/error", obj:resource, atr: :password %>
+
+    <div class="Field">
+      <%= f.label :password_confirmation, class: "Requiredform" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "Width-100" %>
+    </div>
+    <%= render "shared/error", obj:resource, atr: :password_confirmation %>
+
+    <div class="Field">
+      <%= f.label :introduction %><br />
+      <%= f.text_area :introduction, class: "Width-100" %>
+    </div>
+    <%= render "shared/error", obj:resource, atr: :introduction %>
+  
+    <div class="actions">
+      <%= f.submit "新規登録", class: "Width-100 btn btn-primary Btn-actions" %>
+      <%= link_to "アカウントをお持ちの方はこちら", :new_user_session, class: "Width-100 btn btn-secondary Btn-actions" %>
+    </div>
+  <% end %>
+</div>
