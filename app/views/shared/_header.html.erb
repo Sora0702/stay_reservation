@@ -18,7 +18,9 @@
           <li class="dropdown-item"><%= link_to "新規施設の登録", :new_room, class: "nav-link" %></li>
           </li>
           <li><hr class="dropdown-divider"></li>
-          <li class="dropdown-item"><%= link_to "予約済み施設一覧", :reservations, class: "nav-link" %></li>              <li class="dropdown-item"><%= link_to "登録済み施設一覧", :room_own, class: "nav-link" %></li>            <li class="dropdown-item"><%= link_to "アカウント設定", :account, class: "nav-link" %></li>
+          <li class="dropdown-item"><%= link_to "予約済み施設一覧", :reservations, class: "nav-link" %></li>
+          <li class="dropdown-item"><%= link_to "登録済み施設一覧", :room_own, class: "nav-link" %></li>
+          <li class="dropdown-item"><%= link_to "アカウント設定", :account, class: "nav-link" %></li>
           <li><hr class="dropdown-divider"></li>
           <li class="dropdown-item"><%= link_to "ログアウト", :destroy_user_session, method: :delete, data: {confirm: "ログアウトしますか？"}, class: "nav-link" %></li>
         </ul>

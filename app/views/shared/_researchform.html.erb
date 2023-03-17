@@ -1,0 +1,6 @@
+<%= form_with url: :rooms, method: :get, local: true do |f|%>
+  <div class="Search-form">
+    <%= f.text_field atr, placeholder: "#{obj}を入力してください", class: "form-control" %>
+    <%= f.submit '検索', name: nil, class: "btn btn-primary" %>
+  </div>
+<% end %>
