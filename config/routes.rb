@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   get 'rooms/own', to: 'rooms#own', as: 'room_own' 
   resources :rooms
 
-  post 'reservations/confirm', to: 'reservations#confirm', as: 'confirm'
   resources :reservations, only: [:index, :create, :edit, :update, :destroy]
+  post 'reservations/confirm', to: 'reservations#confirm', as: 'confirm'
 end

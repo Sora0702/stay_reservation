@@ -7,12 +7,12 @@ class ReservationsController < ApplicationController
 
   def confirm
     @reservation = Reservation.new(reservation_params)
-    @room = Room.find(params[:room_id])
+    @room = @reservation.room
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @room = Room.find(params[:room_id])
+    @room = @reservation.room
     if @reservation.save
       redirect_to :reservations
     else

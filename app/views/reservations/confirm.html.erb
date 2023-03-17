@@ -24,7 +24,7 @@
     </ul>
     <p>上記の内容で正しければ「確定」ボタンを押下してください。</p>
 
-    <%= form_with model: @reservations, url: reservations_path, local: true do |f| %>
+    <%= form_with model: @reservation, url: reservations_path, local: true do |f| %>
       <%= f.hidden_field :check_in, value: @reservation.check_in %>
       <%= f.hidden_field :check_out, value: @reservation.check_out %>
       <%= f.hidden_field :number_of_people, value: @reservation.number_of_people %>
