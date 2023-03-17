@@ -11,6 +11,10 @@ li {
   margin: 0;
 }
 
+.Requiredform {
+  word-break: keep-all;
+}
+
 .Requiredform::after {
   content: "*";
   color: red;
@@ -317,10 +321,10 @@ li {
 .Room-reservation {
   background-color: #fff8f1;
   padding: 20px;
+  width: 40%;
 }
 
 .Room-information {
-
   ul {
     padding-left: 0;
     li {
@@ -337,8 +341,7 @@ li {
 }
 
 .Room-reservation-form {
-  display: flex;
-  justify-content: space-between;
+  
   ul {
     padding-left: 0;
     padding-right: 10px;

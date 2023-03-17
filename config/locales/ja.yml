@@ -18,4 +18,8 @@ ja:
         room_image: 施設画像
         price: 料金
         address: 住所
+      reservation:
+        check_in: チェックイン日
+        check_out: チェックアウト日
+        number_of_people: 宿泊人数
       
